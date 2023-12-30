@@ -13,6 +13,7 @@ import { ProductCategoryComponent } from './product-master/product-category/prod
 import { ExchangeRateComponent } from './product-master/exchange-rate/exchange-rate.component';
 import { RateComponent } from './product-master/rate/rate.component';
 import { RateSourceComponent } from './product-master/rate-source/rate-source.component';
+import { DepositProductComponent } from './products/deposit-product/deposit-product.component';
 
 const routes: Routes = [
   { path: '', redirectTo: environment.frontEndUrl.organizations, pathMatch: 'full'},
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: environment.frontEndUrl.productCategories, component: ProductCategoryComponent, canActivate: [AuthGuard] },
   { path: environment.frontEndUrl.exchangeRates, component: ExchangeRateComponent, canActivate: [AuthGuard] },
   { path: environment.frontEndUrl.rates, component: RateComponent, canActivate: [AuthGuard] },
-  { path: environment.frontEndUrl.rateSources, component: RateSourceComponent, canActivate: [AuthGuard] }
+  { path: environment.frontEndUrl.rateSources, component: RateSourceComponent, canActivate: [AuthGuard] },
+  { path: environment.frontEndUrl.depositProducts, component: DepositProductComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

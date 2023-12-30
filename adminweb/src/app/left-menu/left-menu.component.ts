@@ -31,7 +31,7 @@ export class LeftMenuComponent implements OnInit, OnDestroy {
     const sameUrl = this.isSameUrl(menuItem);
     if (!sameUrl) {
       this.router.navigateByUrl(urlToNavigate);
-      this.toggleMenu();
+      //this.toggleMenu();
     }
   }
 
@@ -65,7 +65,7 @@ export class LeftMenuComponent implements OnInit, OnDestroy {
       if (menuItem.action) {
         menuItem.action(menuItem);
       }
-      this.toggleMenu();
+      // this.toggleMenu();
     }
   }
 

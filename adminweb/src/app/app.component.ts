@@ -111,7 +111,6 @@ export class AppComponent implements OnDestroy, OnInit {
   private get productMenu(): MenuGroup {
     const languageService = this.languageService;
     const depositProductMenuItem = new MenuItem(environment.frontEndUrl.depositProducts, new LanguageKeyLabelProvider(languageService, "menu.depositProduct", []), "", "account_balance", null);
-    depositProductMenuItem.activated = false;
     const productCategoryMenuItem = new MenuItem(environment.frontEndUrl.productCategories, new LanguageKeyLabelProvider(languageService, "menu.productCategory", []), "", "category", null);
     const loanProductMenuItem = new MenuItem(environment.frontEndUrl.loanProducts, new LanguageKeyLabelProvider(languageService, "menu.loanProduct", []), "", "real_estate_agent", null);
     loanProductMenuItem.activated = false;
