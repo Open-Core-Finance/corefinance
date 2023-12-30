@@ -14,6 +14,8 @@ export abstract class Product {
     allowArbitraryFees: boolean  = false;
     showInactiveFees: boolean  = false;
     productFees: ProductFee[] = [];
+
+    lastModifyDate: Date = new Date();
 }
 
 export class ProductFee {
@@ -89,7 +91,7 @@ export class ProductAvailability {
 
 export enum ProductAvailabilityMode {
     ALL_BRANCHES = "ALL_BRANCHES",
-    ALL_CLIENTS = "ALL_CLIENTS", 
+    ALL_CLIENTS = "ALL_CLIENTS",
     SPECIFIC_CLIENTS = "SPECIFIC_CLIENTS",
     SPECIFIC_BRANCHES = "SPECIFIC_BRANCHES",
     ALL_GROUPS = "ALL_GROUPS",
@@ -103,7 +105,7 @@ export class ProductNewAccountSetting {
 }
 
 export enum AccountState {
-    PENDING_APPROVAL = "PENDING_APPROVAL", 
+    PENDING_APPROVAL = "PENDING_APPROVAL",
     PARTIAL_APPLICATION = "PARTIAL_APPLICATION",
     APPROVED = "APPROVED",
     NEW = "NEW",

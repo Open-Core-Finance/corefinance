@@ -201,5 +201,20 @@
         "value_error": "Giá trị không được bỏ trống!"
       },
       "rateSource": "Nguồn lãi"
+    },
+    "depositProduct": {
+      "id": "Mã số",
+      "name": "Tên sản phầm",
+      "category": "Chuyên mục",
+      "description": "Mô tả",
+      "type": "Loại sản phầm",
+      "activated": "Hoạt động",
+      "deleteConfirmContent": "Bạn có chắc muốn xóa sản phầm ${0} không?",
+      "deleteConfirmTitle": "Xác nhận xóa sản phầm",
+      "addTitle": "Thêm sản phầm",
+      "lastModifyDate": "Lần sửa cuối",
+      "error": {
+        "name_empty": "Tên sản phầm không được bỏ trống!"
+      }
     }
 }

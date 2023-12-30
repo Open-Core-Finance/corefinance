@@ -3,7 +3,8 @@ export const environment = {
     apiUrlRoot: '',
     apiUrl: {
         userprofile: '', organization: '', role: '', common: '', authentication: '', product: '',
-        currency: '', holiday: '', branch: '', productCategory: '', exchangeRate: '', rateSource: '', rate: ''
+        currency: '', holiday: '', branch: '', productCategory: '', exchangeRate: '', rateSource: '', rate: '',
+        depositProduct: ''
     },
     apiPrefix: {
         userLogin: '/login',
@@ -46,4 +47,5 @@ export function rebuildEnvironment() {
     environment.apiUrl.exchangeRate = environment.apiUrl.product + "/exchange-rates"
     environment.apiUrl.rateSource = environment.apiUrl.product + "/rate-sources"
     environment.apiUrl.rate = environment.apiUrl.product + "/rates"
+    environment.apiUrl.depositProduct = environment.apiUrl.product + "/deposit-products"
 }

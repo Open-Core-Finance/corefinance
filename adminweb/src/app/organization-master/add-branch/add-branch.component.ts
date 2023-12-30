@@ -60,7 +60,6 @@ export class AddBranchComponent {
     if (this.commonService.isNullOrEmpty(formData.id)) {
       delete formData.id;
     }
-    console.log(this.message['error']);
     if (this.message['error'].length < 1) {
       const requestHeaders = this.restService.initApplicationJsonRequestHeaders();
       let serviceUrl = environment.apiUrl.branch + "/";
