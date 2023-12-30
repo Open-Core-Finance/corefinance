@@ -1,6 +1,6 @@
 import { CreditArrangementManaged } from "./CreditArrangementManaged";
 import { DepositLimit } from "./DepositLimit";
-import { FrequencyOptionYearly } from "./FrequencyOptionYearly";
+import { FrequencyOptionYearly } from "./FrequencyOption";
 import { InterestCalculationMethod } from "./InterestCalculationMethod";
 import { InterestDayInYear } from "./InterestDayInYear";
 import { InterestRate } from "./InterestRate";

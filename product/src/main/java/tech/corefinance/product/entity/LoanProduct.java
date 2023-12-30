@@ -16,7 +16,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "loan_product")
-public abstract class LoanProduct extends Product {
+public class LoanProduct extends Product {
 
     private double loanMin;
     private double loanMax;
