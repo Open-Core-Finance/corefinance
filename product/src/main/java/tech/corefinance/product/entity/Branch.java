@@ -7,6 +7,7 @@ import org.hibernate.type.SqlTypes;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import tech.corefinance.common.dto.BasicUserDto;
 import tech.corefinance.common.model.CreateUpdateDto;
 import tech.corefinance.common.model.GenericModel;
@@ -18,6 +19,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "branch")
+@EntityListeners(AuditingEntityListener.class)
 public class Branch implements GenericModel<String>, CreateUpdateDto<String> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

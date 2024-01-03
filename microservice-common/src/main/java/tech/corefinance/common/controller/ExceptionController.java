@@ -7,7 +7,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.*;
 import org.springframework.lang.Nullable;
 import org.springframework.security.access.AccessDeniedException;
-import org.springframework.validation.BindException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
@@ -107,7 +106,7 @@ public class ExceptionController extends ResponseEntityExceptionHandler {
      */
     protected ResponseEntity<Object> createResponseEntity(
             @Nullable Object body, HttpHeaders headers, HttpStatusCode statusCode, WebRequest request) {
-        var errorResponse = new GeneralApiResponse(body);
+        var errorResponse = new GeneralApiResponse<>(body);
         if (body instanceof ProblemDetail problemDetail) {
             errorResponse.setStatus(problemDetail.getStatus());
         } else {

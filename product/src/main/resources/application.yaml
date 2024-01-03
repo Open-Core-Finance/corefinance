@@ -120,6 +120,10 @@ tech:
       enabled: true
       schema-prefix: tenant_
       default-schema: public
+    audit:
+      enabled:
+        zoned-date-time: true
+        basic-user: true
 export:
   format:
     date: yyyy/MM/dd

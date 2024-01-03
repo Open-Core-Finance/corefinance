@@ -92,16 +92,10 @@ tech:
     encryption:
       plain: test
       encoded: ENC(O5MFWIMMOz+V3iItOVY60g==)
-    initial:
-      name-separator: _
-      version-separator: .
-      data-regex:
-        permission:
-          file-name-regex: classpath:initial/*permissions*.json
-          replace-if-existed: true
-        internal-api:
-          file-name-regex: classpath:initial/*internal_api*.json
-          replace-if-existed: true
+    audit:
+      enabled:
+        zoned-date-time: true
+        basic-user: true
 export:
   format:
     date: yyyy/MM/dd

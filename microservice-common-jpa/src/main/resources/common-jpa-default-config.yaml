@@ -101,6 +101,10 @@ tech:
     encryption:
       plain: test
       encoded: ENC(O5MFWIMMOz+V3iItOVY60g==)
+    audit:
+      enabled:
+        zoned-date-time: true
+        basic-user: true
 export:
   format:
     date: yyyy/MM/dd
