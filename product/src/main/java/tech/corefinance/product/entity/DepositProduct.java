@@ -5,6 +5,7 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 import tech.corefinance.product.enums.CreditArrangementManaged;
@@ -40,6 +41,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "deposit_product")
+@EqualsAndHashCode(callSuper = true)
 public class DepositProduct extends Product {
 
     @JdbcTypeCode(SqlTypes.JSON)

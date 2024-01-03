@@ -9,5 +9,6 @@
     <include file="classpath:db/changelog/sql/002-no-authen-access-urls.sql"/>
     <include file="classpath:db/changelog/sql/003-organization-details.sql"/>
     <include file="classpath:db/changelog/sql/004-permissions.sql"/>
+    <include file="classpath:db/changelog/sql/005-add-audit-info.sql"/>
 
 </databaseChangeLog>
