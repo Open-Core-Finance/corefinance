@@ -34,9 +34,9 @@
 	<logger name="tech.corefinance" level="DEBUG" />
 
 	<!-- Spring framework logs. Should not turn to debug unless you know what you're doing. It's annoyed!!! -->
-	<logger name="org.springframework" level="DEBUG" />
+	<logger name="org.springframework" level="WARN" />
 <!--	<logger name="org.springframework.data.jpa" level="DEBUG" />-->
-	<logger name="org.hibernate" level="DEBUG" />
+	<logger name="org.hibernate" level="WARN" />
 
 	<root level="INFO">
 		<appender-ref ref="STDOUT" />
