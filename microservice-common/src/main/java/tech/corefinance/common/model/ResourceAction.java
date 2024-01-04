@@ -22,11 +22,13 @@ public class ResourceAction implements GenericModel<String> {
 
     @Id
     @jakarta.persistence.Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
+    @Column(name = "resource_type")
     private String resourceType;
     private String action = COMMON_ACTION_ADD;
     private String url;
+    @Column(name = "request_method")
     @Enumerated(EnumType.STRING)
     private RequestMethod requestMethod;
 

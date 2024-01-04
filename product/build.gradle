@@ -66,8 +66,10 @@ dependencies {
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
 
     // Internal
-    implementation group: 'tech.corefinance', name: 'microservice-common', version: "${internalCommonVersion}"
-    implementation group: 'tech.corefinance', name: 'microservice-common-jpa', version: "${internalCommonJpaVersion}"
+    implementation project(":microservice-common")
+    implementation project(":microservice-common-jpa")
+    // implementation group: 'tech.corefinance', name: 'microservice-common', version: "${internalCommonVersion}"
+    // implementation group: 'tech.corefinance', name: 'microservice-common-jpa', version: "${internalCommonJpaVersion}"
 
     // Database
     implementation group: 'org.postgresql', name: 'postgresql', version: "${postgresqlVersion}"

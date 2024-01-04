@@ -232,3 +232,14 @@ CREATE TABLE IF NOT EXISTS rate
         ON DELETE NO ACTION,
     CONSTRAINT rate_type_check CHECK (type::text = ANY (ARRAY['INTEREST'::character varying, 'WITHHOLDING_TAX'::character varying, 'VALUE_ADDED_TAX'::character varying]::text[]))
 );
+
+CREATE TABLE IF NOT EXISTS delete_tracking
+(
+    id character varying(255) DEFAULT gen_random_uuid()::character varying(255) PRIMARY KEY,
+    entity_class_name character varying(255) NOT NULL,
+    entity_data jsonb NOT NULL,
+    created_date timestamp with time zone,
+    last_modified_date timestamp with time zone,
+    created_by jsonb,
+    last_modified_by jsonb
+);

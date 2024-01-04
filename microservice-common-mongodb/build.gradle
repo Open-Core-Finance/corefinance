@@ -29,11 +29,11 @@ plugins {
 group = 'tech.corefinance'
 version = "${internalCommonMongoDbVersion}"
 
-sourceCompatibility = javaSourceCompatibility
-targetCompatibility = javaSourceCompatibility
+sourceCompatibility = javaCommonSourceCompatibility
+targetCompatibility = javaCommonSourceCompatibility
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(javaSourceCompatibility))
+        languageVersion.set(JavaLanguageVersion.of(javaCommonSourceCompatibility))
     }
 }
 
@@ -73,7 +73,8 @@ dependencies {
     api group: 'org.yaml', name: 'snakeyaml', version: "${snakeyamlVersion}"
 
     // Internal
-    implementation group: 'tech.corefinance', name: 'microservice-common', version: "${internalCommonVersion}"
+    // implementation group: 'tech.corefinance', name: 'microservice-common', version: "${internalCommonVersion}"
+    implementation project(":microservice-common")
 
     // Test
     testImplementation 'org.springframework.boot:spring-boot-starter-test'

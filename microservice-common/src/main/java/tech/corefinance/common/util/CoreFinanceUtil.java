@@ -44,7 +44,7 @@ import java.util.stream.Collectors;
 @Slf4j
 public class CoreFinanceUtil {
 
-    private static final String PARSING_JSON_FAILURE = "Parsing json failure";
+    public static final String PARSING_JSON_FAILURE = "Parsing json failure";
     private static final String PARSING_JSON_FAILURE_LOG = "Parsing json failure! object: {}, error: {}";
     private static final List<Class<?>> LIST_IGNORE_LOGGING =
             List.of(ServletRequest.class, ServletResponse.class, HttpSession.class,

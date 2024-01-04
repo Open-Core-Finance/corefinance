@@ -1,9 +1,6 @@
 package tech.corefinance.common.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
@@ -20,15 +17,19 @@ import java.time.ZonedDateTime;
 public class InternalServiceConfig implements GenericModel<String> {
     @Id
     @jakarta.persistence.Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
     @NotNull
+    @Column(name = "service_name")
     private String serviceName;
     @NotNull
+    @Column(name = "api_key")
     private String apiKey;
     private boolean activated = true;
     @LastModifiedDate
+    @Column(name = "last_modified_date")
     private ZonedDateTime lastModifiedDate;
     @CreatedDate
+    @Column(name = "created_date")
     private ZonedDateTime createdDate;
 }

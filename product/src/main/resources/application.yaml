@@ -124,6 +124,7 @@ tech:
       enabled:
         zoned-date-time: true
         basic-user: true
+        delete-track: true
 export:
   format:
     date: yyyy/MM/dd

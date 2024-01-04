@@ -16,11 +16,13 @@ public class Permission implements GenericModel<String> {
     public static final String ANY_ROLE_APPLIED_VALUE = "ANY";
     @Id
     @jakarta.persistence.Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
     @NotNull
+    @Column(name = "role_id")
     private String roleId;
     @NotNull
+    @Column(name = "resource_type")
     private String resourceType;
     @NotNull
     private String action;

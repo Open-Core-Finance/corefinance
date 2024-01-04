@@ -10,8 +10,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import tech.corefinance.common.dto.BasicUserDto;
 import tech.corefinance.common.model.CreateUpdateDto;
 import tech.corefinance.common.model.GenericModel;
-import tech.corefinance.common.audit.EntityBasicUserAuditorListener;
-import tech.corefinance.common.audit.AuditableEntity;
+import tech.corefinance.common.audit.*;
 
 import java.time.DayOfWeek;
 import java.time.ZonedDateTime;
@@ -20,7 +19,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "branch")
-@EntityListeners({EntityBasicUserAuditorListener.class})
+@EntityListeners({EntityBasicUserAuditorListener.class, EntityZonedDateTimeAuditListener.class, EntityDeleteListener.class})
 public class Branch implements GenericModel<String>, CreateUpdateDto<String>, AuditableEntity<ZonedDateTime, BasicUserDto> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

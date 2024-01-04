@@ -112,3 +112,14 @@ CREATE TABLE IF NOT EXISTS user_profile_role
         ON DELETE NO ACTION,
     CONSTRAINT user_profile_role_user_profile_role_unique UNIQUE NULLS NOT DISTINCT (role_id, user_profile_id)
 );
+
+CREATE TABLE IF NOT EXISTS delete_tracking
+(
+    id character varying(255) DEFAULT gen_random_uuid()::character varying(255) PRIMARY KEY,
+    entity_class_name character varying(255) NOT NULL,
+    entity_data jsonb NOT NULL,
+    created_date timestamp with time zone,
+    last_modified_date timestamp with time zone,
+     created_by jsonb,
+     last_modified_by jsonb
+);
