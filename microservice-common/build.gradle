@@ -62,37 +62,14 @@ bootJar {
 
 dependencies {
     // Spring
-    api ('org.springframework.boot:spring-boot-starter') {
-        // Exclude because current version of snakeyaml have vulnerabilities. Need re-define.
-        exclude group: 'org.yaml', module: 'snakeyaml'
-    }
-    api ("org.springframework.boot:spring-boot-starter-tomcat") {
-        // Exclude to use manual config of spring-boot-starter
-        exclude group: 'org.springframework.boot', module: 'spring-boot-starter'
-    }
-    api('org.springframework.boot:spring-boot-starter-validation') {
-        // Exclude to use manual config of spring-boot-starter
-        exclude group: 'org.springframework.boot', module: 'spring-boot-starter'
-    }
-    api (group: 'org.springframework.boot', name: 'spring-boot-starter-web') {
-        // Exclude to use manual config of spring-boot-starter
-        exclude group: 'org.springframework.boot', module: 'spring-boot-starter'
-    }
-    api (group: 'org.springframework.boot', name: 'spring-boot-starter-aop') {
-        // Exclude to use manual config of spring-boot-starter
-        exclude group: 'org.springframework.boot', module: 'spring-boot-starter'
-    }
+    api ("org.springframework.boot:spring-boot-starter-tomcat")
+    api('org.springframework.boot:spring-boot-starter-validation')
+    api (group: 'org.springframework.boot', name: 'spring-boot-starter-web')
+    api (group: 'org.springframework.boot', name: 'spring-boot-starter-aop')
     api group: 'org.springframework.data', name: 'spring-data-commons'
-    api (group: 'org.springframework.boot', name: 'spring-boot-starter-security') {
-        // Exclude to use manual config of spring-boot-starter
-        exclude group: 'org.springframework.boot', module: 'spring-boot-starter'
-    }
+    api group: 'org.springframework.boot', name: 'spring-boot-starter-security'
     // Spring doc
-    api (group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: "$springDocApiVersion") {
-        // Exclude because current version of snakeyaml have vulnerabilities. Need re-define.
-        exclude group: 'org.yaml', module: 'snakeyaml'
-    }
-    api group: 'org.yaml', name: 'snakeyaml', version: "${snakeyamlVersion}"
+    api (group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: "$springDocApiVersion")
     // Common
     api group: 'commons-beanutils', name: 'commons-beanutils', version: "${beanutilsVersion}"
     api group: 'com.github.ulisesbocchio', name: 'jasypt-spring-boot-starter', version: "${jasyptVersion}"

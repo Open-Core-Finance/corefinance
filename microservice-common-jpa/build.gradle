@@ -62,15 +62,7 @@ bootJar {
 
 dependencies {
     // Spring
-    api ('org.springframework.boot:spring-boot-starter-data-jpa') {
-        // Exclude because current version of snakeyaml have vulnerabilities. Need re-define.
-        exclude group: 'org.springframework.boot', module: 'spring-boot-starter'
-    }
-    api ('org.springframework.boot:spring-boot-starter') {
-        // Exclude because current version of snakeyaml have vulnerabilities. Need re-define.
-        exclude group: 'org.yaml', module: 'snakeyaml'
-    }
-    api group: 'org.yaml', name: 'snakeyaml', version: "${snakeyamlVersion}"
+    api ('org.springframework.boot:spring-boot-starter-data-jpa')
 
     // Internal
     // implementation group: 'tech.corefinance', name: 'microservice-common', version: "${internalCommonVersion}"
