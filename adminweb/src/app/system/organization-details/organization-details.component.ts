@@ -8,6 +8,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { LanguageService } from 'src/app/services/language.service';
 import { OrganizationService } from 'src/app/services/organization.service';
 import { environment } from 'src/environments/environment';
+import {AppComponent} from "../../app.component";
 
 @Component({
   selector: 'app-organization-details',
@@ -24,6 +25,8 @@ export class OrganizationDetailsComponent implements OnInit, OnDestroy{
   listDayOfWeeks = Object.keys(DayOfWeek);
 
   private organizationSubscription: Subscription | null = null;
+
+  parent: AppComponent | undefined;
 
   set viewItem(item: Organization| null) {
     this._viewItem = item;
@@ -80,6 +83,7 @@ export class OrganizationDetailsComponent implements OnInit, OnDestroy{
   viewListClick($event: any) {
     const urlToNavigate = "/" + environment.frontEndUrl.organizations;
     this.router.navigateByUrl(urlToNavigate);
+    this.parent?.closeMenu();
   }
 
   canViewListOrganizations(): boolean {

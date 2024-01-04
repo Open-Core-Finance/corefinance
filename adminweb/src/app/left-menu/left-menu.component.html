@@ -15,9 +15,9 @@
                         <label>{{menuItem.label}}</label>
                     </div>
                     <div class="menu-item" *ngIf="isActionItem(menuItem) && isVisibleMenu(menuItem.visibleFn)" (click)="callMenuAction(menuItem)">
-                        <img [src]="menuItem.iconUrl" *ngIf="menuItem.iconUrl != '' && !isLanuageItem(menuItem)">
-                        <mat-icon aria-hidden="false" [fontIcon]="menuItem.iconName" *ngIf="menuItem.iconName != '' && !isLanuageItem(menuItem)"></mat-icon>
-                        <span class="flag-icon flag-icon-{{menuItem.iconName}}" *ngIf="isLanuageItem(menuItem)"></span>
+                        <img [src]="menuItem.iconUrl" *ngIf="menuItem.iconUrl != '' && !isLanguageItem(menuItem)">
+                        <mat-icon aria-hidden="false" [fontIcon]="menuItem.iconName" *ngIf="menuItem.iconName != '' && !isLanguageItem(menuItem)"></mat-icon>
+                        <span class="flag-icon flag-icon-{{menuItem.iconName}}" *ngIf="isLanguageItem(menuItem)"></span>
                         <label>{{menuItem.label}}</label>
                     </div>
                 </div>

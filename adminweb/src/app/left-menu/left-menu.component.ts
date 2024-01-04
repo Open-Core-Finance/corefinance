@@ -56,7 +56,7 @@ export class LeftMenuComponent implements OnInit, OnDestroy {
     return (menuItem instanceof ActionMenuItem);
   }
 
-  isLanuageItem(menuItem: MenuItem): boolean {
+  isLanguageItem(menuItem: MenuItem): boolean {
     return (menuItem instanceof LanguageMenuItem);
   }
 
