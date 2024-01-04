@@ -1,0 +1,38 @@
+<div class="add-item-page">
+    <mat-card>
+        <mat-card-title>
+            {{languageService.formatLanguage('productType.addTitle', [])}}
+        </mat-card-title>
+        <mat-card-content>
+            <form [formGroup]="addProductTypeForm">
+                <mat-form-field class="full-width" appearance="fill" color="primary">
+                    <input type="text" matInput placeholder="{{languageService.formatLanguage('productType.name', [])}}" formControlName="name" required>
+                </mat-form-field>
+                <mat-form-field class="full-width" appearance="fill" color="primary">
+                    <mat-label>{{languageService.formatLanguage('productType.type', [])}}</mat-label>
+                    <mat-select required formControlName="type">
+                        <mat-option *ngFor="let type of productCategoryTypes" [value]="type">{{type}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <div *ngIf="message['error'] && message['error'].length > 0" class="error-container">
+                    <div class="error" *ngFor="let err of message['error']">
+                        {{languageService.formatLanguage("productType.error." + err, [])}}
+                    </div>
+                </div>
+
+            </form>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="saveClick($event);">
+                {{languageService.formatLanguage('action.save', [])}}
+            </button>
+            <button mat-raised-button color="warn" (click)="cancelClick($event);">
+                {{languageService.formatLanguage('action.cancel', [])}}
+            </button>
+        </mat-card-actions>
+
+    </mat-card>
+
+</div>

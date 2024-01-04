@@ -1,1 +1,93 @@
-<p>add-deposit-product works!</p>
+<div class="add-item-page">
+  <mat-card>
+    <mat-card-title>
+      {{languageService.formatLanguage('depositProduct.addTitle', [])}}
+    </mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="addDepositProductForm">
+
+        <mat-form-field>
+          <mat-label>{{languageService.formatLanguage('product.id', [])}}</mat-label>
+          <input type="text" matInput placeholder="{{languageService.formatLanguage('product.id', [])}}" formControlName="id">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>{{languageService.formatLanguage('product.name', [])}}</mat-label>
+          <input type="text" matInput placeholder="{{languageService.formatLanguage('product.name', [])}}" formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="fill" color="primary">
+          <mat-label>{{languageService.formatLanguage('product.category', [])}}</mat-label>
+          <mat-select formControlName="category">
+            <mat-option [value]="null">&nbsp;</mat-option>
+            <mat-option [value]="cat.id" *ngFor="let cat of productCategories">{{cat.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="fill" color="primary">
+          <mat-label>{{languageService.formatLanguage('product.type', [])}}</mat-label>
+          <mat-select formControlName="type">
+            <mat-option [value]="null">&nbsp;</mat-option>
+            <mat-option [value]="t.id" *ngFor="let t of productTypes">{{t.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-checkbox color="accent" formControlName="activated">
+          {{languageService.formatLanguage('product.activated', [])}}
+        </mat-checkbox>
+
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>{{languageService.formatLanguage('product.description', [])}}</mat-panel-title>
+            <mat-panel-description>&nbsp;</mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-form-field class="full-width" appearance="fill" color="primary">
+            <textarea matInput placeholder="{{languageService.formatLanguage('organization.name', [])}}"
+                      formControlName="description"></textarea>
+          </mat-form-field>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>{{languageService.formatLanguage('product.availabilities', [])}}</mat-panel-title>
+            <mat-panel-description>&nbsp;</mat-panel-description>
+          </mat-expansion-panel-header>
+          <div>
+            <mat-label>{{languageService.formatLanguage('product.availableTo', [])}}</mat-label>
+          </div>
+          <div>
+            <mat-checkbox color="accent" formControlName="productAvailabilityAllGroups">
+              {{languageService.formatLanguage('product.availableMode_ALL_GROUPS', [])}}
+            </mat-checkbox>
+          </div>
+          <div>
+            <mat-checkbox color="accent" formControlName="productAvailabilityAllBranches">
+              {{languageService.formatLanguage('product.availableMode_ALL_BRANCHES', [])}}
+            </mat-checkbox>
+          </div>
+          <div *ngIf="!addDepositProductForm.value.productAvailabilityAllBranches">
+            <!-- //TODO --> branches selection component
+          </div>
+        </mat-expansion-panel>
+
+        <div *ngIf="message['error'] && message['error'].length > 0" class="error-container">
+          <div class="error" *ngFor="let err of message['error']">
+            {{languageService.formatLanguage("currencyScreens.error." + err, [])}}
+          </div>
+        </div>
+
+      </form>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="saveClick($event);">
+        {{languageService.formatLanguage('action.save', [])}}
+      </button>
+      <button mat-raised-button color="warn" (click)="cancelClick($event);">
+        {{languageService.formatLanguage('action.cancel', [])}}
+      </button>
+    </mat-card-actions>
+
+  </mat-card>
+
+</div>

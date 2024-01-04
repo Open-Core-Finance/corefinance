@@ -3,13 +3,14 @@ import { TableComponent } from 'src/app/generic-component/TableComponent';
 import { ProductCategory } from 'src/app/classes/products/ProductCategory';
 import { UiOrderEvent } from 'src/app/classes/UiOrderEvent';
 import { environment } from 'src/environments/environment';
+import {ProductType} from "../../classes/products/ProductType";
 
 @Component({
-  selector: 'app-product-category',
-  templateUrl: './product-category.component.html',
+  selector: 'app-product-type',
+  templateUrl: './product-type.component.html',
   styleUrl: './product-type.component.sass'
 })
-export class ProductCategoryComponent extends TableComponent<ProductCategory> {
+export class ProductTypeComponent extends TableComponent<ProductType> {
 
   override buildTableColumns(): string[] {
     return ["index", "id", "name", "type", "action"];
@@ -24,18 +25,18 @@ export class ProductCategoryComponent extends TableComponent<ProductCategory> {
   }
 
   getServiceUrl() {
-    return environment.apiUrl.productCategory;
+    return environment.apiUrl.productType;
   }
 
-  override getDeleteConfirmContent(item: ProductCategory): string {
-    return this.languageService.formatLanguage("productCategory.deleteConfirmContent", [item.name]);
+  override getDeleteConfirmContent(item: ProductType): string {
+    return this.languageService.formatLanguage("productType.deleteConfirmContent", [item.name]);
   }
 
-  override getDeleteConfirmTitle(item: ProductCategory): string {
-    return this.languageService.formatLanguage("productCategory.deleteConfirmTitle", []);
+  override getDeleteConfirmTitle(item: ProductType): string {
+    return this.languageService.formatLanguage("productType.deleteConfirmTitle", []);
   }
 
-  override createNewItem(): ProductCategory {
-    return new ProductCategory();
+  override createNewItem(): ProductType {
+    return new ProductType();
   }
 }

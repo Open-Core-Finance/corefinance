@@ -1,49 +1,92 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {DayOfWeek} from "../../classes/DayOfWeek";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormBuilder, FormControl} from "@angular/forms";
 import {LanguageService} from "../../services/language.service";
 import {CommonService} from "../../services/common.service";
 import {RestService} from "../../services/rest.service";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {GeneralApiResponse} from "../../classes/GeneralApiResponse";
-import {DepositProduct} from "../../classes/products/DepositProduct";
-import {ProductAvailability, ProductFee, ProductNewAccountSetting} from "../../classes/products/Product";
+import {
+  DepositInterestCalculationDateOption,
+  DepositInterestRate,
+  DepositProduct
+} from "../../classes/products/DepositProduct";
+import {ProductAvailability, ProductAvailabilityMode, ProductNewAccountSetting} from "../../classes/products/Product";
+import {ValueConstraint} from "../../classes/products/ValueConstraint";
+import {TieredInterestItem} from "../../classes/products/TieredInterestItem";
+import {WithdrawalLimit} from "../../classes/products/WithdrawalLimit";
+import {Organization} from "../../classes/Organization";
+import {Role} from "../../classes/Role";
+import {ProductCategory, ProductCategoryType} from "../../classes/products/ProductCategory";
+import {ProductType} from "../../classes/products/ProductType";
+import {MatCheckboxChange} from "@angular/material/checkbox";
 
 @Component({
   selector: 'app-add-deposit-product',
   templateUrl: './add-deposit-product.component.html',
   styleUrl: './add-deposit-product.component.sass'
 })
-export class AddDepositProductComponent {
+export class AddDepositProductComponent implements AfterViewInit, OnInit {
   @Output() cancel = new EventEmitter();
   @Output() save = new EventEmitter();
   _addingItem: DepositProduct | null = null;
-  listDayOfWeeks = Object.keys(DayOfWeek);
+  listAvailableModes = [ProductAvailabilityMode.ALL_BRANCHES, ProductAvailabilityMode.ALL_GROUPS];
+  productCategories: ProductCategory[] = [];
+  productTypes: ProductType[] = [];
 
-  addDepositProductForm = new FormGroup({
-    index: new FormControl(0),
-    id: new FormControl(""),
-    name: new FormControl('', {nonNullable: true}),
-    category: new FormControl("", {nonNullable: true}),
-    type: new FormControl("", {nonNullable: true}),
-    description: new FormControl(""),
-    activated: new FormControl(true),
-    productAvailabilities: new FormControl<ProductAvailability[]>([]),
-    newAccountSetting: new FormControl<ProductNewAccountSetting>(new ProductNewAccountSetting()),
-    currency: new FormControl(""),
-    allowArbitraryFees: new FormControl(false),
-    showInactiveFees: new FormControl(false),
-    productFees: new FormControl<ProductFee[]>([]),
-    lastModifyDate: new FormControl<any>(new Date())
-  });
+  addDepositProductForm = this.formBuilder.group(
+    Object.assign(Object.assign({}, new DepositProduct()), {
+      productAvailabilities: this.formBuilder.array([
+        new FormControl(new ProductAvailability(ProductAvailabilityMode.ALL_GROUPS, [])),
+        new FormControl(new ProductAvailability(ProductAvailabilityMode.ALL_BRANCHES, []))
+      ]),
+      newAccountSetting: this.formBuilder.group(new ProductNewAccountSetting()),
+      productFees: this.formBuilder.array([]),
+      supportedCurrencies: this.formBuilder.array([]),
+      interestRate: this.initDepositInterestForm(),
+      depositLimits: this.formBuilder.array([]),
+      withdrawalLimit: this.formBuilder.group(new WithdrawalLimit()),
+      overdraftsInterest: this.initDepositInterestForm()
+    })
+  );
   message: Record<string, any[]> = {
     success: [],
     error: []
   };
 
   constructor(public languageService: LanguageService, private commonService: CommonService,
-              private restService: RestService, private http: HttpClient) {
+              private restService: RestService, private http: HttpClient,
+              private formBuilder: FormBuilder) {
+  }
+
+  ngOnInit(): void {
+    let headers = this.restService.initRequestHeaders();
+    this.http.get<GeneralApiResponse>(environment.apiUrl.productCategory + "/", { headers, params: {
+        type: ProductCategoryType.DEPOSIT
+      } }).subscribe({
+      next: (data: GeneralApiResponse) => {
+        if (data.status === 0) {
+          this.productCategories = (data.result as ProductCategory[]);
+        }
+      }, error: (data: any) => {
+        console.log(data)
+      }
+    });
+    this.http.get<GeneralApiResponse>(environment.apiUrl.productType + "/", { headers, params: {
+        type: ProductCategoryType.DEPOSIT
+      } }).subscribe({
+      next: (data: GeneralApiResponse) => {
+        if (data.status === 0) {
+          this.productTypes = (data.result as ProductType[]);
+        }
+      }, error: (data: any) => {
+        console.log(data)
+      }
+    });
+  }
+
+  ngAfterViewInit(): void {
   }
 
   saveClick($event: any): any {
@@ -104,11 +147,50 @@ export class AddDepositProductComponent {
 
   @Input() set addingItem(item: DepositProduct| null) {
     this._addingItem = item;
-    if (item) {
+    if (item != null) {
+      // @ts-ignore
       this.addDepositProductForm.setValue(item);
     } else {
+      // @ts-ignore
       this.addDepositProductForm.setValue(new DepositProduct());
     }
   }
 
+  private initDepositInterestForm(): any {
+    return this.formBuilder.group(
+      Object.assign(Object.assign({}, new DepositInterestRate()), {
+        calculationDateOption: this.formBuilder.group(new DepositInterestCalculationDateOption()),
+        interestRateConstraint: this.formBuilder.group(new ValueConstraint()),
+        interestItems: this.formBuilder.group(new TieredInterestItem())
+      })
+    );
+  }
+
+  availableChanged(availableName: string, event: MatCheckboxChange) {
+    const availableLists = this.addDepositProductForm.controls.productAvailabilities.value;
+    if (availableLists) {
+      if (!event.checked) {
+        for (let i = 0; i < availableLists.length; i++) {
+          if ((availableName as ProductAvailabilityMode) == (availableLists[i] as ProductAvailability).availabilityMode) {
+            availableLists.splice(i, 1);
+            i--;
+          }
+        }
+      } else {
+        //availableLists.push(availableName as ProductAvailabilityMode);
+      }
+    }
+  }
+
+  availableChecked(availableName: string) {
+    const availableLists = this.addDepositProductForm.controls.productAvailabilities.value;
+    if (availableLists) {
+      for (let i = 0; i < availableLists.length; i++) {
+        if ((availableLists[i] as ProductAvailability).availabilityMode === (availableName as ProductAvailabilityMode)) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
 }

@@ -111,19 +111,20 @@ export class AppComponent implements OnDestroy, OnInit, AfterViewInit {
       new LanguageKeyLabelProvider(languageService, "menu.organizations", []), "assets/images/organization-icon.svg", "", this.isVisibleOrganizationMenu);
     const organizationDetailsMenuItem = new MenuItem(environment.frontEndUrl.organizationDetails,
         new LanguageKeyLabelProvider(languageService, "menu.organizationDetails", []), "assets/images/organization-icon.svg", "", this.isVisibleOrganizationDetailsMenu);
-    const curenciesMenuItem = new MenuItem(environment.frontEndUrl.curencies, new LanguageKeyLabelProvider(languageService, "menu.curencies", []), "", "security", null);
+    const currenciesMenuItem = new MenuItem(environment.frontEndUrl.currencies, new LanguageKeyLabelProvider(languageService, "menu.currencies", []), "", "security", null);
     const holidaysMenuItem = new MenuItem(environment.frontEndUrl.holidays, new LanguageKeyLabelProvider(languageService, "menu.holidays", []), "",
       "calendar_month", this.isVisibleOrganizationDetailsMenu);
     const branchesMenuItem = new MenuItem(environment.frontEndUrl.branches, new LanguageKeyLabelProvider(languageService, "menu.branches", []), "",
       "location_city", this.isVisibleOrganizationDetailsMenu);
     return new MenuGroup("", new LanguageKeyLabelProvider(languageService, "menu.groupMaster", []),
-      [organizationMenuItem, organizationDetailsMenuItem, curenciesMenuItem, holidaysMenuItem, branchesMenuItem], null);
+      [organizationMenuItem, organizationDetailsMenuItem, currenciesMenuItem, holidaysMenuItem, branchesMenuItem], null);
   }
 
   private get productMenu(): MenuGroup {
     const languageService = this.languageService;
     const depositProductMenuItem = new MenuItem(environment.frontEndUrl.depositProducts, new LanguageKeyLabelProvider(languageService, "menu.depositProduct", []), "", "account_balance", null);
     const productCategoryMenuItem = new MenuItem(environment.frontEndUrl.productCategories, new LanguageKeyLabelProvider(languageService, "menu.productCategory", []), "", "category", null);
+    const productTypeMenuItem = new MenuItem(environment.frontEndUrl.productTypes, new LanguageKeyLabelProvider(languageService, "menu.productType", []), "", "type_specimen", null);
     const loanProductMenuItem = new MenuItem(environment.frontEndUrl.loanProducts, new LanguageKeyLabelProvider(languageService, "menu.loanProduct", []), "", "real_estate_agent", null);
     loanProductMenuItem.activated = false;
     const glProductMenuItem = new MenuItem(environment.frontEndUrl.glProducts, new LanguageKeyLabelProvider(languageService, "menu.glProduct", []), "", "account_balance_wallet", null);
@@ -134,7 +135,7 @@ export class AppComponent implements OnDestroy, OnInit, AfterViewInit {
     const ratesMenuItem = new MenuItem(environment.frontEndUrl.rates, new LanguageKeyLabelProvider(languageService, "menu.rate", []), "", "paid", null);
     const rateSourceMenuItem = new MenuItem(environment.frontEndUrl.rateSources, new LanguageKeyLabelProvider(languageService, "menu.rateSource", []), "", "receipt", null);
     return new MenuGroup("", new LanguageKeyLabelProvider(languageService, "menu.groupProduct", []),
-      [productCategoryMenuItem, depositProductMenuItem, loanProductMenuItem, glProductMenuItem, cryptoProductMenuItem, exchangeRatesMenuItem, ratesMenuItem, rateSourceMenuItem], this.isVisibleOrganizationDetailsMenu);
+      [productCategoryMenuItem, productTypeMenuItem, depositProductMenuItem, loanProductMenuItem, glProductMenuItem, cryptoProductMenuItem, exchangeRatesMenuItem, ratesMenuItem, rateSourceMenuItem], this.isVisibleOrganizationDetailsMenu);
   }
 
   private get languageMenu(): MenuGroup {

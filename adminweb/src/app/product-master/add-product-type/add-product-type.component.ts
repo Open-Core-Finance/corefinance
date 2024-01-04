@@ -7,19 +7,20 @@ import { RestService } from 'src/app/services/rest.service';
 import { LanguageService } from 'src/app/services/language.service';
 import { environment } from 'src/environments/environment';
 import { GeneralApiResponse } from 'src/app/classes/GeneralApiResponse';
+import {ProductType} from "../../classes/products/ProductType";
 
 @Component({
-  selector: 'app-add-product-category',
-  templateUrl: './add-product-category.component.html',
+  selector: 'app-add-product-type',
+  templateUrl: './add-product-type.component.html',
   styleUrl: './add-product-type.component.sass'
 })
-export class AddProductCategoryComponent {
+export class AddProductTypeComponent {
   @Output() cancel = new EventEmitter();
   @Output() save = new EventEmitter();
-  _addingItem: ProductCategory | null = null;
+  _addingItem: ProductType | null = null;
   productCategoryTypes = Object.keys(ProductCategoryType);
 
-  addCurrencyForm = new FormGroup({
+  addProductTypeForm = new FormGroup({
     index: new FormControl(0),
     id: new FormControl(""),
     name: new FormControl('', {nonNullable: true}),
@@ -36,7 +37,7 @@ export class AddProductCategoryComponent {
 
   saveClick($event: any): any {
     this.clearMessages();
-    const formData = this.addCurrencyForm.value;
+    const formData = this.addProductTypeForm.value;
     if (this.commonService.isNullOrEmpty(formData.name)) {
       this.message['error'].push("name_empty");
     }
@@ -48,7 +49,7 @@ export class AddProductCategoryComponent {
     }
     if (this.message['error'].length < 1) {
       const requestHeaders = this.restService.initApplicationJsonRequestHeaders();
-      let serviceUrl = environment.apiUrl.productCategory + "/";
+      let serviceUrl: string;
       var responseHandler = {
         next: (data: GeneralApiResponse) => {
           if (this.save) {
@@ -67,12 +68,12 @@ export class AddProductCategoryComponent {
         }
       };
       if (formData.id) {
-        serviceUrl = environment.apiUrl.productCategory + "/" + formData.id;
+        serviceUrl = environment.apiUrl.productType + "/" + formData.id;
         this.http.put<GeneralApiResponse>(serviceUrl, formData, {
           headers: requestHeaders, params: {}
         }).subscribe(responseHandler);
       } else {
-        serviceUrl = environment.apiUrl.productCategory + "/create";
+        serviceUrl = environment.apiUrl.productType + "/create";
         this.http.post<GeneralApiResponse>(serviceUrl, formData, {
           headers: requestHeaders, params: {}
         }).subscribe(responseHandler);
@@ -94,12 +95,12 @@ export class AddProductCategoryComponent {
     };
   }
 
-  @Input() set addingItem(item: ProductCategory| null) {
+  @Input() set addingItem(item: ProductType| null) {
     this._addingItem = item;
     if (item) {
-      this.addCurrencyForm.setValue(item);
+      this.addProductTypeForm.setValue(item);
     } else {
-      this.addCurrencyForm.setValue(new ProductCategory());
+      this.addProductTypeForm.setValue(new ProductType());
     }
   }
 }

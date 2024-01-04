@@ -103,6 +103,14 @@ CREATE TABLE IF NOT EXISTS product_category
     CONSTRAINT product_category_type_check CHECK (type::text = ANY (ARRAY['DEPOSIT'::character varying, 'LOAN'::character varying, 'GL'::character varying, 'CRYPTO'::character varying]::text[]))
 );
 
+CREATE TABLE IF NOT EXISTS product_type
+(
+    id character varying(255) DEFAULT gen_random_uuid()::character varying(255) PRIMARY KEY,
+    name character varying(255),
+    type character varying(255),
+    CONSTRAINT product_type_type_check CHECK (type::text = ANY (ARRAY['DEPOSIT'::character varying, 'LOAN'::character varying, 'GL'::character varying, 'CRYPTO'::character varying]::text[]))
+);
+
 CREATE TABLE IF NOT EXISTS holiday
 (
     id character varying(255) DEFAULT gen_random_uuid()::character varying(255) PRIMARY KEY,

@@ -1,220 +1,243 @@
 {
-    "applicationName": "Admin Web",
-    "languageKey": "vn",
-    "login": {
-        "username": "Tên đăng nhập",
-        "password": "Mật khẩu",
-        "loginTitle": "Đăng nhập",
-        "loginButton": "Đăng nhập",
-        "error": {
-            "user_locked": "User đã bị khóa. Xin liên hệ admin để mở khóa.",
-            "login_fail": "Tên đăng nhập và mật khẩu không khớp.",
-            "permission_denied": "Không có quyền truy cập."
-        },
-        "selectRole": "Chọn role để đăng nhập"
-    },
-    "user": {
-        "welcome": "Xin chào ${0}!"
-    },
-    "menu": {
-        "groupSystem": "Hệ thống",
-        "groupOther": "Khác",
-        "organizations": "Tổ chức",
-        "settings": "Settings",
-        "curencies": "Tiền tệ",
-        "organizationDetails": "Thông tin tổ chức",
-        "holidays": "Ngày lễ",
-        "branches": "Chi nhánh",
-        "exchangeRate": "Exchange rate",
-        "rate": "Lãi xuất",
-        "rateSource": "Nguồn lãi",
-        "productCategory": "Product category",
-        "depositProduct": "Deposit product",
-        "loanProduct": "Loan product",
-        "glProduct": "GL product",
-        "cryptoProduct": "Crypto product",
-        "groupProduct": "Product",
-        "groupAccount": "Tài khoản",
-        "groupMaster": "Master data",
-        "groupUam": "UAM"
-    },
-    "organization": {
-        "id": "Mã số",
-        "name": "Tên tổ chức",
-        "addTitle": "Thêm tổ chức",
-        "error": {
-            "name_empty": "Không được bỏ trống tên tổ chức!",
-            "currency_empty": "Xin hãy chọn 1 đơn vị tiền chính!",
-            "timezone_empty": "Không được bỏ trống timezone!",
-            "invalid_date_format": "Định dạng ngày không đúng!",
-            "invalid_date_time_format": "Định dạng ngày giờ không đúng!",
-            "phone_empty": "Không được bỏ trống số điện thoại!",
-            "email_empty": "Không được bỏ trống email!",
-            "country_empty": "Không được bỏ trống quốc gia!"
-        },
-        "deleteConfirmContent": "Bạn có chắc muốn xóa tổ chức ${0} không?",
-        "deleteConfirmTitle": "Xác nhận xóa tổ chức",
-        "details": "Thông tin tổ chức",
-        "listOrg": "Danh sách tổ chức"
-    },
-    "action": {
-        "add": "Thêm",
-        "edit": "Sửa",
-        "delete": "Xoá",
-        "action": "Thao tác",
-        "save": "Lưu",
-        "cancel": "Hủy",
-        "yes": "Đồng ý",
-        "no": "Không"
-    },
-    "numberInList": "No.",
-    "tableNoData": "Không có dữ liệu để hiển thị! Xin hãy tạo thêm dữ liệu!",
-    "streetAddressLine1": "Số nhà - đường",
-    "city": "Thành phố",
-    "state": "Bang",
-    "zipPostalCode": "Zip postal code",
-    "country": "Quốc gia",
-    "phoneNumber": "Số ĐT",
-    "email": "Email",
-    "currency": "Tiền tệ",
-    "timezone": "Timezone",
-    "localDateFormat": "Định dạng ngày",
-    "localDateTimeFormat": "Định dạng ngày giờ",
-    "decimalMark": "Phân cách thập phân",
-    "logoUrl": "Logo URL",
-    "iconUrl": "Icon URL",
-    "address": "Địa chỉ",
-    "contact": "Liên hệ",
-    "basicInfo": "Thông tin cơ bản",
-    "dateTime": "Ngày giờ",
-    "decimalMarkPeriod": "Dấu chấm (.)",
-    "decimalMarkComma": "Dấu phẩy (,)",
-    "currencySymbol": "Ký hiệu",
-    "currencySymbolPosision": "Vị trí ký hiệu",
-    "currencySymbolPosision_true": "Đầu tiên",
-    "currencySymbolPosision_false": "Cuối cùng",
-    "currencyDeleteConfirmContent": "Bạn có chắc muốn xóa tiền tệ ${0}?",
-    "currencyDeleteConfirmTitle": "Xác nhận xóa tiền tệ",
-    "currencyId": "Mã số",
-    "currencyScreens": {
-        "addTitle": "Tạo tiền tệ mới",
-        "error": {
-            "name_empty": "Tên không được bỏ trống!",
-            "symbol_empty": "Ký hiệu không được bỏ trống!",
-            "decimal_mark_empty": "Phải chọn dấu phân cách thập phân"
-        }
-    },
-    "logOut": "Đăng xuất",
-    "holiday": {
-        "id": "Mã số",
-        "description": "Mô tả",
-        "repeatYearly": "Lặp lại hằng năm",
-        "holidayDate": "Ngày tháng",
-        "deleteConfirmContent": "Bạn có chắc muốn xóa ngày lễ ${0} không?",
-        "deleteConfirmTitle": "Xác nhận xóa ngày lễ",
-        "holidayDateFormat": "dd-MM-yyyy",
-        "holidayDateYearlyFormat": "dd-MM' (Hằng năm)'",
-        "error": {
-            "description_empty": "Mô tả không được bỏ trống!",
-            "holiday_date_empty": "Ngày tháng không được bỏ trống!"
-        },
-        "addTitle": "Thêm ngày lễ"
-    },
-    "dateFormatValue": "dd/MM/yyyy",
-    "monthYearLabel": "MM/YYYY",
-    "dateA11yLabel": "dd/MM/yyyy",
-    "monthYearA11yLabel": "MM/YYYY",
-    "nonWorkingDays": "Non Working Days",
-    "dayOfWeek": {
-        "MONDAY": "Thứ 2",
-        "TUESDAY": "Thứ 3",
-        "WEDNESDAY": "Thứ 4",
-        "THURSDAY": "Thứ 5",
-        "FRIDAY": "Thứ 6",
-        "SATURDAY": "Thứ 7",
-        "SUNDAY": "Chủ nhật"
-    },
-    "branch": {
-        "deleteConfirmContent": "Bạn có chắc muốn xóa chi nhánh ${0} không?",
-        "deleteConfirmTitle": "Xác nhận xoá chi nhánh",
-        "id": "Mã số",
-        "name": "Tên chi nhánh",
-        "addTitle": "Thêm chi nhánh",
-        "inheritNonWorkingDays": "Kế thừa non-working days từ tổ chức",
-        "parrentBanch": "Chi nhánh chính",
-        "error": {
-            "name_empty": "Tên chi nhánh không được bỏ trống!",
-            "phone_empty": "Không được bỏ trống số điện thoại!",
-            "email_empty": "Không được bỏ trống email!"
-        }
-    },
-    "productCategory": {
-        "id": "Mã số",
-        "name": "Tên",
-        "type": "Loại",
-        "deleteConfirmContent": "Bạn có chắc muốn xóa chuyên mục ${0} không?",
-        "deleteConfirmTitle": "Xác nhận xóa chuyên mục",
-        "addTitle": "Thêm chuyên mục",
-        "error": {
-            "name_empty": "Tên không được bỏ trống!",
-            "type_empty": "Loại không được bỏ trống!"
-        }
-    },
-    "exchangeRate": {
-        "id": "Mã tỉ giá",
-        "name": "Tên tỉ giá",
-        "sellRate": "Giá bán",
-        "buyRate": "Giá mua",
-        "deleteConfirmContent": "Bạn có chắc muốn xóa tỉ giá ${0} không?",
-        "deleteConfirmTitle": "Xác nhận xóa tỉ giá",
-        "addTitle": "Thêm tỉ giá",
-        "error": {
-            "id_empty": "Mã tỉ giá không được bỏ trống!",
-            "name_empty": "Tên tỉ giá không được bỏ trống!",
-            "sell_rate_error": "Giá bán phải lớn hơn 0!",
-            "buy_rate_error": "Giá mua phải lớn hơn 0!"
-        }
-    },
-    "rateSource": {
-        "id": "Mã số",
-        "name": "Tên",
-        "type": "Loại",
-        "note": "Ghi chú",
-        "deleteConfirmContent": "Bạn có chắc muốn xóa nguồn lãi ${0} không?",
-        "deleteConfirmTitle": "Xác nhận xóa nguồn lãi",
-        "addTitle": "Thêm nguồn lãi",
-        "error": {
-            "name_empty": "Tên không được bỏ trống!",
-            "type_empty": "Loại không được bỏ trống!"
-        }
-    },
-    "rate": {
-      "id": "Mã số",
-      "rateValue": "Giá trị",
-      "validFrom": "Hiệu lực từ",
-      "note": "Ghi chú",
-      "type": "Loại lãi",
-      "deleteConfirmContent": "Bạn có chắc muốn xóa lãi xuất ${0} không?",
-      "deleteConfirmTitle": "Xác nhận xóa lãi xuất",
-      "addTitle": "Thêm lãi xuất",
+  "applicationName": "Admin Web",
+  "languageKey": "vn",
+  "login": {
+      "username": "Tên đăng nhập",
+      "password": "Mật khẩu",
+      "loginTitle": "Đăng nhập",
+      "loginButton": "Đăng nhập",
       "error": {
-        "value_error": "Giá trị không được bỏ trống!"
+          "user_locked": "User đã bị khóa. Xin liên hệ admin để mở khóa.",
+          "login_fail": "Tên đăng nhập và mật khẩu không khớp.",
+          "permission_denied": "Không có quyền truy cập."
       },
-      "rateSource": "Nguồn lãi"
-    },
-    "depositProduct": {
+      "selectRole": "Chọn role để đăng nhập"
+  },
+  "user": {
+      "welcome": "Xin chào ${0}!"
+  },
+  "menu": {
+      "groupSystem": "Hệ thống",
+      "groupOther": "Khác",
+      "organizations": "Tổ chức",
+      "settings": "Settings",
+      "currencies": "Tiền tệ",
+      "organizationDetails": "Thông tin tổ chức",
+      "holidays": "Ngày lễ",
+      "branches": "Chi nhánh",
+      "exchangeRate": "Exchange rate",
+      "rate": "Lãi xuất",
+      "rateSource": "Nguồn lãi",
+      "productCategory": "Product category",
+      "productType": "Product type",
+      "depositProduct": "Deposit product",
+      "loanProduct": "Loan product",
+      "glProduct": "GL product",
+      "cryptoProduct": "Crypto product",
+      "groupProduct": "Product",
+      "groupAccount": "Tài khoản",
+      "groupMaster": "Master data",
+      "groupUam": "UAM"
+  },
+  "organization": {
       "id": "Mã số",
-      "name": "Tên sản phầm",
-      "category": "Chuyên mục",
-      "description": "Mô tả",
-      "type": "Loại sản phầm",
-      "activated": "Hoạt động",
-      "deleteConfirmContent": "Bạn có chắc muốn xóa sản phầm ${0} không?",
-      "deleteConfirmTitle": "Xác nhận xóa sản phầm",
-      "addTitle": "Thêm sản phầm",
-      "lastModifyDate": "Lần sửa cuối",
+      "name": "Tên tổ chức",
+      "addTitle": "Thêm tổ chức",
       "error": {
-        "name_empty": "Tên sản phầm không được bỏ trống!"
+          "name_empty": "Không được bỏ trống tên tổ chức!",
+          "currency_empty": "Xin hãy chọn 1 đơn vị tiền chính!",
+          "timezone_empty": "Không được bỏ trống timezone!",
+          "invalid_date_format": "Định dạng ngày không đúng!",
+          "invalid_date_time_format": "Định dạng ngày giờ không đúng!",
+          "phone_empty": "Không được bỏ trống số điện thoại!",
+          "email_empty": "Không được bỏ trống email!",
+          "country_empty": "Không được bỏ trống quốc gia!"
+      },
+      "deleteConfirmContent": "Bạn có chắc muốn xóa tổ chức ${0} không?",
+      "deleteConfirmTitle": "Xác nhận xóa tổ chức",
+      "details": "Thông tin tổ chức",
+      "listOrg": "Danh sách tổ chức"
+  },
+  "action": {
+      "add": "Thêm",
+      "edit": "Sửa",
+      "delete": "Xoá",
+      "action": "Thao tác",
+      "save": "Lưu",
+      "cancel": "Hủy",
+      "yes": "Đồng ý",
+      "no": "Không"
+  },
+  "numberInList": "No.",
+  "tableNoData": "Không có dữ liệu để hiển thị! Xin hãy tạo thêm dữ liệu!",
+  "streetAddressLine1": "Số nhà - đường",
+  "city": "Thành phố",
+  "state": "Bang",
+  "zipPostalCode": "Zip postal code",
+  "country": "Quốc gia",
+  "phoneNumber": "Số ĐT",
+  "email": "Email",
+  "currency": "Tiền tệ",
+  "timezone": "Timezone",
+  "localDateFormat": "Định dạng ngày",
+  "localDateTimeFormat": "Định dạng ngày giờ",
+  "decimalMark": "Phân cách thập phân",
+  "logoUrl": "Logo URL",
+  "iconUrl": "Icon URL",
+  "address": "Địa chỉ",
+  "contact": "Liên hệ",
+  "basicInfo": "Thông tin cơ bản",
+  "dateTime": "Ngày giờ",
+  "decimalMarkPeriod": "Dấu chấm (.)",
+  "decimalMarkComma": "Dấu phẩy (,)",
+  "currencySymbol": "Ký hiệu",
+  "currencySymbolPosision": "Vị trí ký hiệu",
+  "currencySymbolPosision_true": "Đầu tiên",
+  "currencySymbolPosision_false": "Cuối cùng",
+  "currencyDeleteConfirmContent": "Bạn có chắc muốn xóa tiền tệ ${0}?",
+  "currencyDeleteConfirmTitle": "Xác nhận xóa tiền tệ",
+  "currencyId": "Mã số",
+  "currencyScreens": {
+      "addTitle": "Tạo tiền tệ mới",
+      "error": {
+          "name_empty": "Tên không được bỏ trống!",
+          "symbol_empty": "Ký hiệu không được bỏ trống!",
+          "decimal_mark_empty": "Phải chọn dấu phân cách thập phân"
       }
+  },
+  "logOut": "Đăng xuất",
+  "holiday": {
+      "id": "Mã số",
+      "description": "Mô tả",
+      "repeatYearly": "Lặp lại hằng năm",
+      "holidayDate": "Ngày tháng",
+      "deleteConfirmContent": "Bạn có chắc muốn xóa ngày lễ ${0} không?",
+      "deleteConfirmTitle": "Xác nhận xóa ngày lễ",
+      "holidayDateFormat": "dd-MM-yyyy",
+      "holidayDateYearlyFormat": "dd-MM' (Hằng năm)'",
+      "error": {
+          "description_empty": "Mô tả không được bỏ trống!",
+          "holiday_date_empty": "Ngày tháng không được bỏ trống!"
+      },
+      "addTitle": "Thêm ngày lễ"
+  },
+  "dateFormatValue": "dd/MM/yyyy",
+  "monthYearLabel": "MM/YYYY",
+  "dateA11yLabel": "dd/MM/yyyy",
+  "monthYearA11yLabel": "MM/YYYY",
+  "nonWorkingDays": "Non Working Days",
+  "dayOfWeek": {
+      "MONDAY": "Thứ 2",
+      "TUESDAY": "Thứ 3",
+      "WEDNESDAY": "Thứ 4",
+      "THURSDAY": "Thứ 5",
+      "FRIDAY": "Thứ 6",
+      "SATURDAY": "Thứ 7",
+      "SUNDAY": "Chủ nhật"
+  },
+  "branch": {
+      "deleteConfirmContent": "Bạn có chắc muốn xóa chi nhánh ${0} không?",
+      "deleteConfirmTitle": "Xác nhận xoá chi nhánh",
+      "id": "Mã số",
+      "name": "Tên chi nhánh",
+      "addTitle": "Thêm chi nhánh",
+      "inheritNonWorkingDays": "Kế thừa non-working days từ tổ chức",
+      "parrentBanch": "Chi nhánh chính",
+      "error": {
+          "name_empty": "Tên chi nhánh không được bỏ trống!",
+          "phone_empty": "Không được bỏ trống số điện thoại!",
+          "email_empty": "Không được bỏ trống email!"
+      }
+  },
+  "productCategory": {
+      "id": "Mã số",
+      "name": "Tên",
+      "type": "Loại",
+      "deleteConfirmContent": "Bạn có chắc muốn xóa chuyên mục ${0} không?",
+      "deleteConfirmTitle": "Xác nhận xóa chuyên mục",
+      "addTitle": "Thêm chuyên mục",
+      "error": {
+          "name_empty": "Tên không được bỏ trống!",
+          "type_empty": "Loại không được bỏ trống!"
+      }
+  },
+  "productType": {
+    "id": "Mã số",
+    "name": "Tên",
+    "type": "Loại",
+    "deleteConfirmContent": "Bạn có chắc muốn xóa loại sản phẩm ${0} không?",
+    "deleteConfirmTitle": "Xác nhận xóa loại sản phẩm",
+    "addTitle": "Thêm loại sản phẩm",
+    "error": {
+      "name_empty": "Tên không được bỏ trống!",
+      "type_empty": "Loại không được bỏ trống!"
     }
+  },
+  "exchangeRate": {
+      "id": "Mã tỉ giá",
+      "name": "Tên tỉ giá",
+      "sellRate": "Giá bán",
+      "buyRate": "Giá mua",
+      "deleteConfirmContent": "Bạn có chắc muốn xóa tỉ giá ${0} không?",
+      "deleteConfirmTitle": "Xác nhận xóa tỉ giá",
+      "addTitle": "Thêm tỉ giá",
+      "error": {
+          "id_empty": "Mã tỉ giá không được bỏ trống!",
+          "name_empty": "Tên tỉ giá không được bỏ trống!",
+          "sell_rate_error": "Giá bán phải lớn hơn 0!",
+          "buy_rate_error": "Giá mua phải lớn hơn 0!"
+      }
+  },
+  "rateSource": {
+      "id": "Mã số",
+      "name": "Tên",
+      "type": "Loại",
+      "note": "Ghi chú",
+      "deleteConfirmContent": "Bạn có chắc muốn xóa nguồn lãi ${0} không?",
+      "deleteConfirmTitle": "Xác nhận xóa nguồn lãi",
+      "addTitle": "Thêm nguồn lãi",
+      "error": {
+          "name_empty": "Tên không được bỏ trống!",
+          "type_empty": "Loại không được bỏ trống!"
+      }
+  },
+  "rate": {
+    "id": "Mã số",
+    "rateValue": "Giá trị",
+    "validFrom": "Hiệu lực từ",
+    "note": "Ghi chú",
+    "type": "Loại lãi",
+    "deleteConfirmContent": "Bạn có chắc muốn xóa lãi xuất ${0} không?",
+    "deleteConfirmTitle": "Xác nhận xóa lãi xuất",
+    "addTitle": "Thêm lãi xuất",
+    "error": {
+      "value_error": "Giá trị không được bỏ trống!"
+    },
+    "rateSource": "Nguồn lãi"
+  },
+  "product": {
+    "id": "Mã số",
+    "category": "Chuyên mục",
+    "description": "Mô tả sản phẩm",
+    "name": "Tên sản phầm",
+    "type": "Loại sản phầm",
+    "activated": "Hoạt động",
+    "lastModifyDate": "Lần sửa cuối",
+    "availabilities": "Product availabilities",
+    "availableTo": "Available to",
+    "availableMode_ALL_BRANCHES": "All branches",
+    "availableMode_ALL_CLIENTS": "All clients",
+    "availableMode_ALL_GROUPS": "All groups",
+    "availableMode_SPECIFIC_CLIENTS": "Specific clients",
+    "availableMode_SPECIFIC_BRANCHES": "Specific branches",
+    "availableMode_SPECIFIC_GROUPS": "Specific groups"
+  },
+  "depositProduct": {
+    "deleteConfirmContent": "Bạn có chắc muốn xóa sản phầm ${0} không?",
+    "deleteConfirmTitle": "Xác nhận xóa sản phầm",
+    "addTitle": "Thêm sản phầm",
+    "error": {
+      "name_empty": "Tên sản phầm không được bỏ trống!"
+    }
+  }
 }

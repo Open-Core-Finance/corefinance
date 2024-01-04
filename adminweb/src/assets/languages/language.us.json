@@ -21,7 +21,7 @@
       "groupOther": "Other",
       "organizations": "Organization",
       "settings": "Settings",
-      "curencies": "Curency",
+      "currencies": "Currency",
       "organizationDetails": "Org details",
       "holidays": "Holiday",
       "branches": "Branch",
@@ -29,6 +29,7 @@
       "rate": "Interest rate",
       "rateSource": "Rate source",
       "productCategory": "Product category",
+      "productType": "Product type",
       "depositProduct": "Deposit product",
       "loanProduct": "Loan product",
       "glProduct": "GL product",
@@ -160,6 +161,18 @@
           "type_empty": "Type cannot be empty!"
       }
   },
+  "productType": {
+    "id": "ID",
+    "name": "Type name",
+    "type": "Category type",
+    "deleteConfirmContent": "Are you sure to delete product type ${0}?",
+    "deleteConfirmTitle": "Confirm delete product type",
+    "addTitle": "Add product type",
+    "error": {
+      "name_empty": "Product type name cannot be empty!",
+      "type_empty": "Category type cannot be empty!"
+    }
+  },
   "exchangeRate": {
       "id": "Code",
       "name": "Name",
@@ -202,17 +215,27 @@
     },
     "rateSource": "Rate source"
   },
-  "depositProduct": {
+  "product": {
     "id": "ID",
-    "name": "Product name",
     "category": "Category",
-    "description": "Description",
+    "description": "Product description",
+    "name": "Product name",
     "type": "Product type",
     "activated": "Activated",
+    "lastModifyDate": "Last modified",
+    "availabilities": "Product availabilities",
+    "availableTo": "Available to",
+    "availableMode_ALL_BRANCHES": "All branches",
+    "availableMode_ALL_CLIENTS": "All clients",
+    "availableMode_ALL_GROUPS": "All groups",
+    "availableMode_SPECIFIC_CLIENTS": "Specific clients",
+    "availableMode_SPECIFIC_BRANCHES": "Specific branches",
+    "availableMode_SPECIFIC_GROUPS": "Specific groups"
+  },
+  "depositProduct": {
     "deleteConfirmContent": "Are you sure to delete product ${0}?",
     "deleteConfirmTitle": "Confirm delete product",
     "addTitle": "Add product",
-    "lastModifyDate": "Last modified",
     "error": {
       "name_empty": "Product name cannot be empty!"
     }

@@ -55,6 +55,8 @@ import { RateSourceComponent } from './product-master/rate-source/rate-source.co
 import { AddRateSourceComponent } from './product-master/add-rate-source/add-rate-source.component';
 import { DepositProductComponent } from './products/deposit-product/deposit-product.component';
 import { AddDepositProductComponent } from './products/add-deposit-product/add-deposit-product.component';
+import {ProductTypeComponent} from "./product-master/product-type/product-type.component";
+import {AddProductTypeComponent} from "./product-master/add-product-type/add-product-type.component";
 
 @NgModule({
   declarations: [
@@ -73,7 +75,8 @@ import { AddDepositProductComponent } from './products/add-deposit-product/add-d
     ExchangeRateComponent, AddExchangeRateComponent,
     RateComponent, AddRateComponent,
     RateSourceComponent, AddRateSourceComponent,
-    DepositProductComponent, AddDepositProductComponent
+    DepositProductComponent, AddDepositProductComponent,
+    ProductTypeComponent, AddProductTypeComponent
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule,

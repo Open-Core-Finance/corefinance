@@ -1,3 +1,5 @@
+import {User} from "../User";
+
 export abstract class Product {
     id: string = "";
     name: string = "";
@@ -6,7 +8,12 @@ export abstract class Product {
     type: string = "";
     description: string = "";
     activated: boolean = true;
-    productAvailabilities: ProductAvailability[] = [];
+    productAvailabilities: ProductAvailability[] = [
+      new ProductAvailability(ProductAvailabilityMode.ALL_GROUPS, []),
+      new ProductAvailability(ProductAvailabilityMode.ALL_BRANCHES, [])
+    ];
+    productAvailabilityAllGroups: boolean = true;
+    productAvailabilityAllBranches: boolean = true;
     newAccountSetting: ProductNewAccountSetting = new ProductNewAccountSetting();
     currency: string = "";
 
@@ -16,6 +23,9 @@ export abstract class Product {
     productFees: ProductFee[] = [];
 
     lastModifyDate: Date = new Date();
+    createdDate: Date = new Date();
+    createdBy: User = new User();
+    lastModifiedBy: User = new User();
 }
 
 export class ProductFee {
@@ -85,14 +95,12 @@ export enum MonthlyPayOption {
 }
 
 export class ProductAvailability {
-    availabilityMode: ProductAvailabilityMode = ProductAvailabilityMode.ALL_BRANCHES;
-    modeInfo: string[] = [];
+    constructor(public availabilityMode: ProductAvailabilityMode, public modeInfo: string[]) {
+    }
 }
 
 export enum ProductAvailabilityMode {
     ALL_BRANCHES = "ALL_BRANCHES",
-    ALL_CLIENTS = "ALL_CLIENTS",
-    SPECIFIC_CLIENTS = "SPECIFIC_CLIENTS",
     SPECIFIC_BRANCHES = "SPECIFIC_BRANCHES",
     ALL_GROUPS = "ALL_GROUPS",
     SPECIFIC_GROUPS = "SPECIFIC_GROUPS"

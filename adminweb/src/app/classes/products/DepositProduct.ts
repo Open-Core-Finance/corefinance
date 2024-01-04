@@ -15,10 +15,10 @@ export class DepositProduct extends Product {
     /**
      * Interest Rate.
      */
-    interestRate: DepositInterestRate | null = null;
+    interestRate: DepositInterestRate | null = new DepositInterestRate();
 
     // Internal control
-    daysToSetToDormant: number | null = null;
+    daysToSetToDormant: number | null = 0;
 
     /**
      * Deposit transaction limits.
@@ -27,18 +27,18 @@ export class DepositProduct extends Product {
     /**
      * Withdrawal Limits.
      */
-    withdrawalLimit: WithdrawalLimit | null = null;
+    withdrawalLimit: WithdrawalLimit | null = new WithdrawalLimit();
     /**
      * Early Closure Period.
      */
     earlyClosurePeriod: number | null = 0;
 
     allowOverdrafts: boolean = false;
-    overdraftsInterest: DepositInterestRate | null = null;
+    overdraftsInterest: DepositInterestRate | null = new DepositInterestRate();
     maxOverdraftLimit: number | null = 0.0;
-    overdraftsUnderCreditArrangementManaged: CreditArrangementManaged | null = null;
+    overdraftsUnderCreditArrangementManaged: CreditArrangementManaged | null = CreditArrangementManaged.NO;
 
-    termUnit: FrequencyOptionYearly | null = null;
+    termUnit: FrequencyOptionYearly | null = FrequencyOptionYearly.DAY;
     minTermLength: number | null = 0.0;
     maxTermLength: number | null = 0.0;
     defaultTermLength: number | null = 0.0;
@@ -46,10 +46,10 @@ export class DepositProduct extends Product {
 }
 
 export class DepositInterestRate implements InterestRate {
-    interestCalculationMethod: InterestCalculationMethod | null = null;
-    balanceInterestCalculation: DepositBalanceInterestCalculation | null = null;
-    calculationDateOption: DepositInterestCalculationDateOption | null = null;
-    interestDayInYear: InterestDayInYear | null = null;
+    interestCalculationMethod: InterestCalculationMethod | null = InterestCalculationMethod.PERCENTAGE_PER_MONTH;
+    balanceInterestCalculation: DepositBalanceInterestCalculation | null = DepositBalanceInterestCalculation.END_OF_dAY;
+    calculationDateOption: DepositInterestCalculationDateOption | null = new DepositInterestCalculationDateOption();
+    interestDayInYear: InterestDayInYear | null = InterestDayInYear.FIXED_365_DAYS;
 
     applyWithholdingTaxes: boolean | null = false;
     // Fixed interest rate
@@ -58,10 +58,10 @@ export class DepositInterestRate implements InterestRate {
      * Interest Rate Constraints (%) for fixed interest rate. <br/>
      * Interest Spread Constraints (%) for index rate source.
      */
-    interestRateConstraint: ValueConstraint | null = null;
+    interestRateConstraint: ValueConstraint | null = new ValueConstraint();
     interestRateIndexSource: string = "";
     // Tiered interest rate
-    interestItems: TieredInterestItem | null = null;
+    interestItems: TieredInterestItem | null = new TieredInterestItem();
 }
 
 export enum DepositBalanceInterestCalculation {
