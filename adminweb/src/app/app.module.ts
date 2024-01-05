@@ -57,6 +57,7 @@ import { DepositProductComponent } from './products/deposit-product/deposit-prod
 import { AddDepositProductComponent } from './products/add-deposit-product/add-deposit-product.component';
 import {ProductTypeComponent} from "./product-master/product-type/product-type.component";
 import {AddProductTypeComponent} from "./product-master/add-product-type/add-product-type.component";
+import {BranchesSelectionComponent} from "./organization-master/branches-selection/branches-selection.component";
 
 @NgModule({
   declarations: [
@@ -75,7 +76,7 @@ import {AddProductTypeComponent} from "./product-master/add-product-type/add-pro
     ExchangeRateComponent, AddExchangeRateComponent,
     RateComponent, AddRateComponent,
     RateSourceComponent, AddRateSourceComponent,
-    DepositProductComponent, AddDepositProductComponent,
+    DepositProductComponent, AddDepositProductComponent, BranchesSelectionComponent,
     ProductTypeComponent, AddProductTypeComponent
   ],
   imports: [

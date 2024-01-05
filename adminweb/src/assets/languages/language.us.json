@@ -136,18 +136,21 @@
       "SUNDAY": "Sunday"
   },
   "branch": {
-      "deleteConfirmContent": "Are you sure to delete branch ${0}?",
-      "deleteConfirmTitle": "Confirm delete branch",
-      "id": "ID",
-      "name": "Name",
-      "addTitle": "Add branch",
-      "inheritNonWorkingDays": "Inherit non-working days from organization",
-      "parrentBanch": "Parrent branch",
-      "error": {
-          "name_empty": "Branch name cannot be empty!",
-          "phone_empty": "Phone number cannot be empty!",
-          "email_empty": "Email cannot be empty!"
-      }
+    "deleteConfirmContent": "Are you sure to delete branch ${0}?",
+    "deleteConfirmTitle": "Confirm delete branch",
+    "id": "ID",
+    "name": "Name",
+    "addTitle": "Add branch",
+    "inheritNonWorkingDays": "Inherit non-working days from organization",
+    "parrentBanch": "Parrent branch",
+    "error": {
+        "name_empty": "Branch name cannot be empty!",
+        "phone_empty": "Phone number cannot be empty!",
+        "email_empty": "Email cannot be empty!"
+    },
+    "selectionPanel": {
+      "title": "Select branch"
+    }
   },
   "productCategory": {
       "id": "ID",

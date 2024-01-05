@@ -41,6 +41,7 @@ export class AddDepositProductComponent implements AfterViewInit, OnInit {
         new FormControl(new ProductAvailability(ProductAvailabilityMode.ALL_GROUPS, [])),
         new FormControl(new ProductAvailability(ProductAvailabilityMode.ALL_BRANCHES, []))
       ]),
+      // productAvailabilityModeInfo: this.formBuilder.array([]),
       newAccountSetting: this.formBuilder.group(new ProductNewAccountSetting()),
       productFees: this.formBuilder.array([]),
       supportedCurrencies: this.formBuilder.array([]),

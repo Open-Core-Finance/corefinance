@@ -136,18 +136,21 @@
       "SUNDAY": "Chủ nhật"
   },
   "branch": {
-      "deleteConfirmContent": "Bạn có chắc muốn xóa chi nhánh ${0} không?",
-      "deleteConfirmTitle": "Xác nhận xoá chi nhánh",
-      "id": "Mã số",
-      "name": "Tên chi nhánh",
-      "addTitle": "Thêm chi nhánh",
-      "inheritNonWorkingDays": "Kế thừa non-working days từ tổ chức",
-      "parrentBanch": "Chi nhánh chính",
-      "error": {
-          "name_empty": "Tên chi nhánh không được bỏ trống!",
-          "phone_empty": "Không được bỏ trống số điện thoại!",
-          "email_empty": "Không được bỏ trống email!"
-      }
+    "deleteConfirmContent": "Bạn có chắc muốn xóa chi nhánh ${0} không?",
+    "deleteConfirmTitle": "Xác nhận xoá chi nhánh",
+    "id": "Mã số",
+    "name": "Tên chi nhánh",
+    "addTitle": "Thêm chi nhánh",
+    "inheritNonWorkingDays": "Kế thừa non-working days từ tổ chức",
+    "parrentBanch": "Chi nhánh chính",
+    "error": {
+        "name_empty": "Tên chi nhánh không được bỏ trống!",
+        "phone_empty": "Không được bỏ trống số điện thoại!",
+        "email_empty": "Không được bỏ trống email!"
+    },
+    "selectionPanel": {
+      "title": "Chọn chi nhánh"
+    }
   },
   "productCategory": {
       "id": "Mã số",

@@ -14,6 +14,8 @@ export abstract class Product {
     ];
     productAvailabilityAllGroups: boolean = true;
     productAvailabilityAllBranches: boolean = true;
+    productAvailabilityModeInfo: string[] = [];
+
     newAccountSetting: ProductNewAccountSetting = new ProductNewAccountSetting();
     currency: string = "";
 

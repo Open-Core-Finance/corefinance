@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-product-category',
   templateUrl: './product-category.component.html',
-  styleUrl: './product-type.component.sass'
+  styleUrl: './product-category.component.sass'
 })
 export class ProductCategoryComponent extends TableComponent<ProductCategory> {
 

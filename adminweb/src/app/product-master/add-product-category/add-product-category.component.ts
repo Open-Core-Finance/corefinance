@@ -11,7 +11,7 @@ import { GeneralApiResponse } from 'src/app/classes/GeneralApiResponse';
 @Component({
   selector: 'app-add-product-category',
   templateUrl: './add-product-category.component.html',
-  styleUrl: './add-product-type.component.sass'
+  styleUrl: './add-product-category.component.sass'
 })
 export class AddProductCategoryComponent {
   @Output() cancel = new EventEmitter();

@@ -1,0 +1,19 @@
+<div>
+  <div><mat-label>{{languageService.formatLanguage('branch.selectionPanel.title', [])}}:</mat-label></div>
+  <div>
+    <mat-form-field class="example-full-width" *ngIf="selectedBranchesDisplay.length < branches.length">
+      <mat-autocomplete #auto="matAutocomplete">
+        @for (branch of branches; track branch) {
+          <mat-option [value]="branch" *ngIf="!isSelectedBranch(branch)">{{branch.name}}</mat-option>
+        }
+      </mat-autocomplete>
+      <input type="text" placeholder="{{languageService.formatLanguage('branch.selectionPanel.title', [])}}"
+             matInput [matAutocomplete]="auto" [(ngModel)]="selectedBranch" #selectionInput>
+    </mat-form-field>
+  </div>
+  <div>
+    <div *ngFor="let b of selectedBranchesDisplay">
+      {{b.name}}
+    </div>
+  </div>
+</div>
