@@ -31,7 +31,6 @@ export class AddDepositProductComponent implements AfterViewInit, OnInit {
   @Output() cancel = new EventEmitter();
   @Output() save = new EventEmitter();
   _addingItem: DepositProduct | null = null;
-  listAvailableModes = [ProductAvailabilityMode.ALL_BRANCHES, ProductAvailabilityMode.ALL_GROUPS];
   productCategories: ProductCategory[] = [];
   productTypes: ProductType[] = [];
 
@@ -165,33 +164,5 @@ export class AddDepositProductComponent implements AfterViewInit, OnInit {
         interestItems: this.formBuilder.group(new TieredInterestItem())
       })
     );
-  }
-
-  availableChanged(availableName: string, event: MatCheckboxChange) {
-    const availableLists = this.addDepositProductForm.controls.productAvailabilities.value;
-    if (availableLists) {
-      if (!event.checked) {
-        for (let i = 0; i < availableLists.length; i++) {
-          if ((availableName as ProductAvailabilityMode) == (availableLists[i] as ProductAvailability).availabilityMode) {
-            availableLists.splice(i, 1);
-            i--;
-          }
-        }
-      } else {
-        //availableLists.push(availableName as ProductAvailabilityMode);
-      }
-    }
-  }
-
-  availableChecked(availableName: string) {
-    const availableLists = this.addDepositProductForm.controls.productAvailabilities.value;
-    if (availableLists) {
-      for (let i = 0; i < availableLists.length; i++) {
-        if ((availableLists[i] as ProductAvailability).availabilityMode === (availableName as ProductAvailabilityMode)) {
-          return true;
-        }
-      }
-    }
-    return false;
   }
 }

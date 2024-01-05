@@ -23,12 +23,11 @@ import {environment} from "../../../environments/environment";
 })
 export class BranchesSelectionComponent implements OnInit, ControlValueAccessor {
 
-  _selectedBranches: string[] =[];
   selectedBranchesDisplay: Branch[] = [];
   branches: Branch[] = [];
   _selectedBranch: Branch | null = null;
 
-  @ViewChild("selectionInput") input!: ElementRef;
+  @ViewChild("selectionInput") input: ElementRef | undefined = undefined;
 
   constructor(public languageService: LanguageService, private commonService: CommonService,
               private restService: RestService, private http: HttpClient) {
@@ -58,32 +57,32 @@ export class BranchesSelectionComponent implements OnInit, ControlValueAccessor 
 
   writeValue(value: string[]): void {
     if (value !== undefined) {
-      this._selectedBranches = value;
+      for (let i = 0; i < value.length; i++) {
+        for (const b of this.branches) {
+          if (b.id == value[i]) {
+            this.selectedBranchesDisplay.push(b);
+          }
+        }
+      }
     }
   }
 
   propagateChange = (_: string[]) => { };
   propagateTouched = (_: string[]) => { };
 
-  set selectedBranches(selectedBranches: string[]) {
-    this._selectedBranches = selectedBranches;
-  }
-
-  get selectedBranches() {
-    return this._selectedBranches;
-  }
-
   set selectedBranch(selectedBranch: Branch | null) {
-    this._selectedBranch = selectedBranch;
-    this.input.nativeElement.value = "";
+    if (this.input) {
+      this.input.nativeElement.value = "";
+    }
     let contain = false;
     for (let branch of this.selectedBranchesDisplay) {
       if (branch.id == selectedBranch?.id) contain = true;
     }
     if (!contain && selectedBranch) {
       this.selectedBranchesDisplay.push(selectedBranch);
-      this._selectedBranches.push(selectedBranch.id);
+      this.propagateChange(this.selectedBranchesDisplay.map((value, _, __) => value.id));
     }
+    this._selectedBranch = null;
   }
 
   get selectedBranch(): Branch | null {
@@ -95,5 +94,23 @@ export class BranchesSelectionComponent implements OnInit, ControlValueAccessor 
       if (branch.id == b.id) return true;
     }
     return false;
+  }
+
+  removeBranch(b: Branch) {
+    let found = false;
+    for (let i = 0; i < this.selectedBranchesDisplay.length; i++) {
+      const branch = this.selectedBranchesDisplay[i];
+      if (branch.id == b.id) {
+        this.selectedBranchesDisplay.splice(i--, 1);
+        found = true;
+      }
+    }
+    if (found) {
+      this.propagateChange(this.selectedBranchesDisplay.map((value, _, __) => value.id));
+    }
+    if (this.input) {
+      this.input.nativeElement.value = "";
+    }
+    this._selectedBranch = null;
   }
 }

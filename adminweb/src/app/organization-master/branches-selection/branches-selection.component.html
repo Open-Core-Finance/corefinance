@@ -11,9 +11,20 @@
              matInput [matAutocomplete]="auto" [(ngModel)]="selectedBranch" #selectionInput>
     </mat-form-field>
   </div>
-  <div>
-    <div *ngFor="let b of selectedBranchesDisplay">
-      {{b.name}}
-    </div>
+  <div *ngIf="selectedBranchesDisplay.length > 0">
+    <table>
+      <thead>
+        <tr>
+          <th>{{languageService.formatLanguage('branch.name', [])}}</th>
+          <th>{{languageService.formatLanguage('action.action', [])}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let b of selectedBranchesDisplay">
+          <td>{{b.name}}</td>
+          <td><mat-icon aria-hidden="false" fontIcon="delete" (click)="removeBranch(b)"></mat-icon></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
