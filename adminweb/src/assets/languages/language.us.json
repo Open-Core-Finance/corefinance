@@ -233,7 +233,11 @@
     "availableMode_ALL_GROUPS": "All groups",
     "availableMode_SPECIFIC_CLIENTS": "Specific clients",
     "availableMode_SPECIFIC_BRANCHES": "Specific branches",
-    "availableMode_SPECIFIC_GROUPS": "Specific groups"
+    "availableMode_SPECIFIC_GROUPS": "Specific groups",
+    "newAccountSetting": "New account setting",
+    "idType": "ID type",
+    "idType_INCREASEMENT": "Incremental number",
+    "idType_RANDOM_PATTERN": "Random pattern"
   },
   "depositProduct": {
     "deleteConfirmContent": "Are you sure to delete product ${0}?",

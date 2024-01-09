@@ -16,7 +16,7 @@
           <input type="text" matInput placeholder="{{languageService.formatLanguage('product.name', [])}}" formControlName="name">
         </mat-form-field>
 
-        <mat-form-field class="full-width" appearance="fill" color="primary">
+        <mat-form-field appearance="fill" color="primary">
           <mat-label>{{languageService.formatLanguage('product.category', [])}}</mat-label>
           <mat-select formControlName="category">
             <mat-option [value]="null">&nbsp;</mat-option>
@@ -24,7 +24,7 @@
           </mat-select>
         </mat-form-field>
 
-        <mat-form-field class="full-width" appearance="fill" color="primary">
+        <mat-form-field appearance="fill" color="primary">
           <mat-label>{{languageService.formatLanguage('product.type', [])}}</mat-label>
           <mat-select formControlName="type">
             <mat-option [value]="null">&nbsp;</mat-option>
@@ -69,6 +69,21 @@
             <app-branches-selection formControlName="productAvailabilityModeInfo"></app-branches-selection>
           </div>
         </mat-expansion-panel>
+
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>{{languageService.formatLanguage('product.newAccountSetting', [])}}</mat-panel-title>
+            <mat-panel-description>&nbsp;</mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-form-field appearance="fill" color="primary">
+            <mat-label>{{languageService.formatLanguage('product.idType', [])}}</mat-label>
+            <mat-select formControlName="type" required>
+              <mat-option [value]="newAccountIdTypeEnum.INCREASEMENT">{{languageService.formatLanguage('product.idType_INCREASEMENT', [])}}</mat-option>
+              <mat-option [value]="newAccountIdTypeEnum.RANDOM_PATTERN">{{languageService.formatLanguage('product.idType_RANDOM_PATTERN', [])}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-expansion-panel>
+
 
         <div *ngIf="message['error'] && message['error'].length > 0" class="error-container">
           <div class="error" *ngFor="let err of message['error']">

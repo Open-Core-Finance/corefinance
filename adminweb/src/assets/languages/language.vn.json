@@ -233,7 +233,11 @@
     "availableMode_ALL_GROUPS": "All groups",
     "availableMode_SPECIFIC_CLIENTS": "Specific clients",
     "availableMode_SPECIFIC_BRANCHES": "Specific branches",
-    "availableMode_SPECIFIC_GROUPS": "Specific groups"
+    "availableMode_SPECIFIC_GROUPS": "Specific groups",
+    "newAccountSetting": "Cấu hình cho tài khoản mới",
+    "idType": "Tạo mã số",
+    "idType_INCREASEMENT": "Mã số tăng dần",
+    "idType_RANDOM_PATTERN": "Tạo mã ngẫu nhiên"
   },
   "depositProduct": {
     "deleteConfirmContent": "Bạn có chắc muốn xóa sản phầm ${0} không?",

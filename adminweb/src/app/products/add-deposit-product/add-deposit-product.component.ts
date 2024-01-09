@@ -12,7 +12,12 @@ import {
   DepositInterestRate,
   DepositProduct
 } from "../../classes/products/DepositProduct";
-import {ProductAvailability, ProductAvailabilityMode, ProductNewAccountSetting} from "../../classes/products/Product";
+import {
+  ProductAvailability,
+  ProductAvailabilityMode,
+  ProductNewAccountSetting,
+  ProductNewAccountSettingType
+} from "../../classes/products/Product";
 import {ValueConstraint} from "../../classes/products/ValueConstraint";
 import {TieredInterestItem} from "../../classes/products/TieredInterestItem";
 import {WithdrawalLimit} from "../../classes/products/WithdrawalLimit";
@@ -33,6 +38,7 @@ export class AddDepositProductComponent implements AfterViewInit, OnInit {
   _addingItem: DepositProduct | null = null;
   productCategories: ProductCategory[] = [];
   productTypes: ProductType[] = [];
+  newAccountIdTypeEnum = ProductNewAccountSettingType;
 
   addDepositProductForm = this.formBuilder.group(
     Object.assign(Object.assign({}, new DepositProduct()), {

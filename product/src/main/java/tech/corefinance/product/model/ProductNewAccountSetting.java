@@ -5,7 +5,7 @@ import tech.corefinance.product.enums.AccountState;
 
 @Data
 public class ProductNewAccountSetting {
-    private String typeName;
+    private ProductNewAccountSettingType type;
     private String typeConfig;
     private AccountState initialState;
 }
